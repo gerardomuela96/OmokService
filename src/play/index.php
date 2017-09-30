@@ -14,13 +14,13 @@ if(!array_key_exists("pid", $_GET)){
 }
 
 else{
-    if(file_exists("PATH TO GAMES'FOLDER".$_GET["pid"])){
+    if(file_exists("../new/Games/".$_GET["pid"]."txt")){
         //Open file of state of the game
     }
     else{
         $data = array('response'=>false, 'reason'=>"Unknown Pid");
         echo json_encode($data);
-        exti;
+        exit;
 
     }
 }
