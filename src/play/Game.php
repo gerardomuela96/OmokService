@@ -6,6 +6,9 @@
  * Time: 7:02 PM
  */
 
+include ("Board.php");
+include ("MoveStrategy.php");
+
 class Game{
 
     var $id;

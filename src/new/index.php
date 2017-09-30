@@ -6,6 +6,8 @@
  * Time: 12:20 AM
  */
 
+include ("../play/Game.php");
+
 $strategies = array("Smart", "Random"); // supported strategies
 
 if(!array_key_exists("strategy", $_GET)){
@@ -23,7 +25,7 @@ else{
 
         //Create new game file
         $gameFile = fopen($gameObject->id.".txt", "w");
-        fwrite($gameFile, $gameObject->MoveStrategy);
+        fwrite($gameFile, $strategy."\r\n");
         fwrite($gameFile, json_encode($gameObject->Board));
         fclose($gameFile);
 

@@ -20,12 +20,4 @@ class Board{
     }
 }
 
-$game = new Board();
-
-for($i = 0; $i<15 ; $i++) {
-    for ($j = 0; $j < 15; $j++) {
-            echo $game->board[$i][$j]." ";
-    }
-    echo "\r\n";
-}
 ?>

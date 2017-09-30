@@ -6,6 +6,9 @@
  * Time: 7:03 PM
  */
 
+include ("SmartStrategy.php");
+include ("RandomStrategy.php");
+
 class MoveStrategy{
     public function __construct($strategy)
     {
