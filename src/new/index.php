@@ -23,7 +23,7 @@ else{
 
         $gameObject = new Game($data["pid"], $strategy);
 
-        //Create new game file
+        //Create new game file to save the state of the game
         $gameFile = fopen("Games/".$gameObject->id.".txt", "w");
         fwrite($gameFile, $strategy."\r\n");
         fwrite($gameFile, json_encode($gameObject->Board));

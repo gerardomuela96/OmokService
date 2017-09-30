@@ -15,7 +15,7 @@ if(!array_key_exists("pid", $_GET)){
 
 else{
     if(file_exists("../new/Games/".$_GET["pid"]."txt")){
-        //Open file of state of the game
+        //Open file to read state of the game
     }
     else{
         $data = array('response'=>false, 'reason'=>"Unknown Pid");
