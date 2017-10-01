@@ -10,8 +10,12 @@ include ("SmartStrategy.php");
 include ("RandomStrategy.php");
 
 class MoveStrategy{
+
+    var $strategy;
+
     public function __construct($strategy)
     {
+        $this->strategy = $strategy;
         switch ($strategy) {
             case "Smart":
                 $this->strategy = new SmartStrategy();

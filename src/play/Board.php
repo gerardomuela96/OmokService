@@ -7,17 +7,16 @@
  */
 class Board{
 
-    var $board = array(array());
+    var $array = array(array());
 
     public function __construct()
     {
-        $this->board = array(array());
+        $this->array = array(array());
         for($i = 0; $i<15 ; $i++){
           for($j=0; $j < 15 ; $j++){
-              $this->board[$i][$j] = 0;
+              $this->array[$i][$j] = 0;
           }
         }
     }
 }
-
 ?>

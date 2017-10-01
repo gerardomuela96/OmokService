@@ -21,12 +21,12 @@ else{
         // write your code here … use uniqid() to create a unique play id.
         $data = array('response'=>true, 'pid'=>uniqid());
 
-        $gameObject = new Game($data["pid"], $strategy);
+        $gameObject = new Game($strategy);
 
         //Create new game file to save the state of the game
-        $gameFile = fopen("Games/".$gameObject->id.".txt", "w");
+        $gameFile = fopen("Games/".$data["pid"].".txt", "w");
         fwrite($gameFile, $strategy."\r\n");
-        fwrite($gameFile, json_encode($gameObject->Board));
+        fwrite($gameFile, json_encode($gameObject->gameBoard));
         fclose($gameFile);
 
     }

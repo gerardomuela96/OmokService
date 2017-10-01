@@ -8,7 +8,18 @@
 
 class Move{
 
+    var $board;
+    var $x;
+    var $y;
+    var $isWin;
+    var $isDraw;
 
+    public function __construct($board, $x, $y)
+    {
+        $this->board = $board;
+        $this->x = $x;
+        $this->y = $y;
+    }
 
 }
 
