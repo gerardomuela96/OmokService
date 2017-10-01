@@ -40,13 +40,13 @@ else{
                 exit;
             }
 
-            if(intval($coords[0]) > 15 || intval($coords[0]) < 0){
+            if(intval($coords[0]) > 14 || intval($coords[0]) < 0){
                 $data = array('response'=>false, 'reason'=>"Invalid x coordinate, ".intval($coords[0]));
                 echo json_encode($data);
                 exit;
             }
 
-            if(intval($coords[1]) > 15 || intval($coords[1]) < 0){
+            if(intval($coords[1]) > 14 || intval($coords[1]) < 0){
                 $data = array('response'=>false, 'reason'=>"Invalid y coordinate, ".intval($coords[1]));
                 echo json_encode($data);
                 exit;
