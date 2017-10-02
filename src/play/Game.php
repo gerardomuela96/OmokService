@@ -52,8 +52,9 @@ class Game{
     {
         $coords = $this->moveStrategy->makeMove($this->strategy, $playerMove, $this->gameBoard->array);
 
-        while($this->gameBoard->array[$coords[0]][$coords[1]] != 0 && !$playerMove->isDraw){
-            $coords = $this->moveStrategy->makeMove($this->strategy, $playerMove, $this->gameBoard->array);
+        while(($this->gameBoard->array[$coords[0]][$coords[1]] != 0 && !$playerMove->isDraw)
+            || ($coords[0] < 0 || $coords[0] > 14 || $coords[1] < 0 || $coords[1] > 14)){
+            $coords = array(rand(0,14),rand(0,14));
         }
 
         if($this->gameBoard->array[$coords[0]][$coords[1]] == 0){

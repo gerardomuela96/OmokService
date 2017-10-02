@@ -5,10 +5,7 @@
  * Date: 9/29/2017
  * Time: 7:04 PM
  */
-
 class SmartStrategy{
-
-
     public function makeSmartMove($playerMove, $board)
     {
         //Get coords from the player
@@ -34,9 +31,6 @@ class SmartStrategy{
                     }
                     $horizontalCounter++;
                 }
-                if($horizontalCounter == 3 || $horizontalCounter == 4){
-                    return array($x+1,$y);
-                }
             }
         }
 
@@ -52,9 +46,6 @@ class SmartStrategy{
                         break;
                     }
                     $horizontalCounter++;
-                }
-                if($horizontalCounter == 3 || $horizontalCounter == 4){
-                    return array($x-1,$y);
                 }
             }
         }
@@ -72,9 +63,6 @@ class SmartStrategy{
                     }
                     $verticalCounter++;
                 }
-                if($verticalCounter == 3 || $verticalCounter == 4){
-                    return array($x,$y+1);
-                }
             }
         }
 
@@ -90,9 +78,6 @@ class SmartStrategy{
                         break;
                     }
                     $verticalCounter++;
-                }
-                if($verticalCounter == 3 || $verticalCounter == 4){
-                    return array($x,$y-1);
                 }
             }
         }
@@ -110,9 +95,6 @@ class SmartStrategy{
                     }
                     $leftDiagonalCounter++;
                 }
-                if($leftDiagonalCounter == 3 || $leftDiagonalCounter == 4){
-                    return array($x+1,$y+1);
-                }
             }
         }
 
@@ -128,9 +110,6 @@ class SmartStrategy{
                         break;
                     }
                     $leftDiagonalCounter++;
-                }
-                if($leftDiagonalCounter == 3 || $leftDiagonalCounter == 4){
-                    return array($x-1,$y-1);
                 }
             }
         }
@@ -148,9 +127,6 @@ class SmartStrategy{
                     }
                     $rightDiagonalCounter++;
                 }
-                if($rightDiagonalCounter == 3 || $rightDiagonalCounter == 4){
-                    return array($x+1,$y-1);
-                }
             }
         }
 
@@ -167,17 +143,83 @@ class SmartStrategy{
                     }
                     $rightDiagonalCounter++;
                 }
-                if($rightDiagonalCounter == 3 || $rightDiagonalCounter == 4){
-                    return array($x-1,$y+1);
-                }
             }
         }
 
+        //Horizontal Checking Left
+        if($x != 0 && $horizontalCounter > $verticalCounter
+            && $horizontalCounter > $rightDiagonalCounter
+            && $horizontalCounter > $leftDiagonalCounter){
+            if($board[$x-1][$y] == 0){
+                return array($x-1,$y);
+            }
+        }
 
-        return array(rand(0,14),rand(0,14));
+        //Horizontal Checking Right
+        if($x != 14 && $horizontalCounter > $verticalCounter
+            && $horizontalCounter > $rightDiagonalCounter
+            && $horizontalCounter > $leftDiagonalCounter){
+            if($board[$x+1][$y] == 0){
+                return array($x+1,$y);
+            }
+        }
+
+        //Vertical Checking Up
+        if($y != 0 && $verticalCounter > $horizontalCounter
+            && $verticalCounter > $rightDiagonalCounter
+            && $verticalCounter > $leftDiagonalCounter){
+            if($board[$x][$y-1] == 0){
+                return array($x,$y-1);
+            }
+        }
+
+        //Vertical Checking Down
+        if($y != 14 && $verticalCounter > $horizontalCounter
+            && $verticalCounter > $rightDiagonalCounter
+            && $verticalCounter > $leftDiagonalCounter){
+            if($board[$x][$y+1] == 0){
+                return array($x,$y+1);
+            }
+        }
+
+        //Left Diagonal Checking Up
+        if($x != 0 && $y != 0 && $leftDiagonalCounter > $horizontalCounter
+            && $leftDiagonalCounter > $verticalCounter
+            && $leftDiagonalCounter > $rightDiagonalCounter){
+            if($board[$x-1][$y-1] == 0){
+                return array($x-1,$y-1);
+            }
+        }
+
+        //Left Diagonal Checking Down
+        if($x != 14 && $y != 14 && $leftDiagonalCounter > $horizontalCounter
+            && $leftDiagonalCounter > $verticalCounter
+            && $leftDiagonalCounter > $rightDiagonalCounter){
+            if($board[$x+1][$y+1] == 0){
+                return array($x+1,$y+1);
+            }
+        }
+
+        //Right Diagonal Checking Up
+        if($x != 0 && $y != 14 && $rightDiagonalCounter > $horizontalCounter
+            && $rightDiagonalCounter > $verticalCounter
+            && $rightDiagonalCounter > $leftDiagonalCounter){
+            if($board[$x-1][$y+1] == 0){
+                return array($x-1,$y+1);
+            }
+        }
+
+        //Right Diagonal Checking Down
+        if($x != 0 && $y != 14 && $rightDiagonalCounter > $horizontalCounter
+            && $rightDiagonalCounter > $verticalCounter
+            && $rightDiagonalCounter > $leftDiagonalCounter){
+            if($board[$x+1][$y-1] == 0){
+                return array($x+1,$y-1);
+            }
+        }
+
+        return array($x+5,$y+5);
 
     }
-
 }
-
 ?>
