@@ -80,7 +80,7 @@ class Move{
         if($verticalCounter >= 5){
             return true;
         }
-        echo $verticalCounter;
+        
         return false;
     }
 

@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b0fe6446-a532-45b8-b1a8-b0fbb9546896" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/play/Move.php" afterPath="$PROJECT_DIR$/src/play/Move.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/play/index.php" afterPath="$PROJECT_DIR$/src/play/index.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -57,20 +56,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/play/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
+            <state relative-caret-position="187">
               <caret line="73" column="22" lean-forward="false" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Move.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Move.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/play/Move.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="940">
+            <state relative-caret-position="396">
               <caret line="82" column="8" lean-forward="false" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="8" />
               <folding />
             </state>
@@ -146,8 +145,8 @@
         <option value="$PROJECT_DIR$/src/new/Games/59d16da80ac9d.txt" />
         <option value="$PROJECT_DIR$/src/new/Games/59d19e4fb64e8.txt" />
         <option value="$PROJECT_DIR$/src/new/Games/59d19f7de0048.txt" />
-        <option value="$PROJECT_DIR$/src/play/Move.php" />
         <option value="$PROJECT_DIR$/src/play/index.php" />
+        <option value="$PROJECT_DIR$/src/play/Move.php" />
       </list>
     </option>
   </component>
@@ -305,7 +304,7 @@
       <workItem from="1506545734957" duration="7756000" />
       <workItem from="1506616296743" duration="7512000" />
       <workItem from="1506732827745" duration="11066000" />
-      <workItem from="1506811347769" duration="32976000" />
+      <workItem from="1506811347769" duration="33369000" />
     </task>
     <servers />
   </component>
@@ -336,7 +335,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77677000" />
+    <option name="totallyTimeSpent" value="78070000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -726,18 +725,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/play/Move.php">
+    <entry file="file://$PROJECT_DIR$/src/play/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="940">
-          <caret line="82" column="8" lean-forward="false" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="8" />
+        <state relative-caret-position="187">
+          <caret line="73" column="22" lean-forward="false" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/play/index.php">
+    <entry file="file://$PROJECT_DIR$/src/play/Move.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="73" column="22" lean-forward="false" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="22" />
+        <state relative-caret-position="396">
+          <caret line="82" column="8" lean-forward="false" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="8" />
           <folding />
         </state>
       </provider>
