@@ -52,11 +52,13 @@ class Game{
     {
         $coords = $this->moveStrategy->makeMove($this->strategy);
 
-        while($this->gameBoard->array[$coords[0]][$coords[1]] != 0){
+        while($this->gameBoard->array[$coords[0]][$coords[1]] != 0 && in_array(0, $this->gameBoard->array)){
             $coords = $this->moveStrategy->makeMove($this->strategy);
         }
 
-        $this->gameBoard->array[$coords[0]][$coords[1]] = 2;
+        if($this->gameBoard->array[$coords[0]][$coords[1]] == 0){
+            $this->gameBoard->array[$coords[0]][$coords[1]] = 2;
+        }
 
         return new Move($coords[0], $coords[1]);
     }

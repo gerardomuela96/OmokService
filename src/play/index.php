@@ -58,9 +58,24 @@ else{
                 $y = intval($coords[1]);
                 $playerMove = $game->makePlayerMove($x,$y);
 
+                //Check if the player move is a Win
+                $playerMove->isWin = $playerMove->isWin($game->gameBoard->array, 1);
+
+                //Check if the player move is a Draw
+                $playerMove->isDraw = $playerMove->isDraw($game->gameBoard->array);
+
+
 
                 //Opponent move
                 $opponentMove = $game->makeOpponentMove();
+
+                if($playerMove->isWin == false && $playerMove->isDraw == false){
+                    //Check if the opponent move is a Win
+                    $opponentMove->isWin = $opponentMove->isWin($game->gameBoard->array, 2);
+
+                    //Check if the opponent move is a Draw
+                    $opponentMove->isDraw = $opponentMove->isDraw($game->gameBoard->array);
+                }
 
                 //Update Game file
                 $gameFile = fopen("../new/Games/".$_GET["pid"].".txt", "w");
