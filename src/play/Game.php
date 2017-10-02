@@ -8,6 +8,7 @@
 
 include ("Board.php");
 include ("MoveStrategy.php");
+include ("Move.php");
 
 class Game{
 
@@ -18,7 +19,7 @@ class Game{
     public function __construct($strategy)
     {
         $this->gameBoard = new Board();
-        $this->MoveStrategy = new MoveStrategy($strategy);
+        $this->moveStrategy = new MoveStrategy($strategy);
         $this->strategy = $strategy;
     }
 
@@ -39,11 +40,25 @@ class Game{
     public function makePlayerMove($x, $y)
     {
         //Update the board with coordinates provided
+        if($this->gameBoard->array[$x][$y] == 0){
+            $this->gameBoard->array[$x][$y] = 1;
+        }
 
-        $this->gameBoard->array[$x][$y] = 1;
+        return new Move($x, $y);
 
-        return new Move($this->gameBoard, $x, $y);
+    }
 
+    public function makeOpponentMove()
+    {
+        $coords = $this->moveStrategy->makeMove($this->strategy);
+
+        while($this->gameBoard->array[$coords[0]][$coords[1]] != 0){
+            $coords = $this->moveStrategy->makeMove($this->strategy);
+        }
+
+        $this->gameBoard->array[$coords[0]][$coords[1]] = 2;
+
+        return new Move($coords[0], $coords[1]);
     }
 
     public function updateBoard($board){

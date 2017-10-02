@@ -7,7 +7,6 @@
  */
 
 include ("Game.php");
-include ("Move.php");
 
 if(!array_key_exists("pid", $_GET)){
     /* write code here */
@@ -53,15 +52,25 @@ else{
             }
 
             else{
+
+                //Player move
                 $x = intval($coords[0]);
                 $y = intval($coords[1]);
                 $playerMove = $game->makePlayerMove($x,$y);
+
+
+                //Opponent move
+                $opponentMove = $game->makeOpponentMove();
 
                 //Update Game file
                 $gameFile = fopen("../new/Games/".$_GET["pid"].".txt", "w");
                 fwrite($gameFile, $game->strategy."\r\n");
                 fwrite($gameFile, json_encode($game->gameBoard));
                 fclose($gameFile);
+
+                //JSON Object
+                $data = array('response'=>true, 'ack_move'=>$playerMove, 'move'=>$opponentMove);
+                echo json_encode($data);
             }
         }
     }
