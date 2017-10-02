@@ -45,19 +45,23 @@ class Move{
         $leftDiagonalCounter = 1;
 
         //Vertical Checking Up
-        if($board[$x-1][$y] == $board[$x][$y]){
+        if($x != 0){
+            if($board[$x-1][$y] == $board[$x][$y]){
 
-            //Add similar consecutive rocks
-            $verticalCounter+=1;
+                //Add similar consecutive rocks
+                $verticalCounter+=1;
 
-            for($i = $x-2; $i >= 0; $i--){
-                if($board[$i][$y] != $board[$x][$y]){
-                    break;
+                for($i = $x-2; $i >= 0; $i--){
+                    if($board[$i][$y] != $board[$x][$y]){
+                        break;
+                    }
+                    $verticalCounter++;
                 }
-                $verticalCounter++;
             }
+        }
 
-            //Vertical Checking Down
+        //Vertical Checking Down
+        if($x != 14){
             if($board[$x+1][$y] == $board[$x][$y]){
 
                 //Add similar consecutive rocks
@@ -70,15 +74,13 @@ class Move{
                     $verticalCounter++;
                 }
             }
-
-            //Check if there are 5 consecutive rocks
-            if($verticalCounter >= 5)
-                return true;
-
         }
-        
 
-
+        //Check if there are 5 consecutive rocks
+        if($verticalCounter >= 5){
+            return true;
+        }
+        echo $verticalCounter;
         return false;
     }
 

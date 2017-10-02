@@ -71,7 +71,7 @@ else{
 
                 if($playerMove->isWin == false && $playerMove->isDraw == false){
                     //Check if the opponent move is a Win
-                    $opponentMove->isWin = $opponentMove->isWin($game->gameBoard->array, 2);
+                    //$opponentMove->isWin = $opponentMove->isWin($game->gameBoard->array, 2);
 
                     //Check if the opponent move is a Draw
                     $opponentMove->isDraw = $opponentMove->isDraw($game->gameBoard->array);
