@@ -44,15 +44,47 @@ class Move{
         $rightDiagonalCounter = 1;
         $leftDiagonalCounter = 1;
 
-        //Vertical Checking Up
+        //Horizontal Checking Left
         if($x != 0){
             if($board[$x-1][$y] == $board[$x][$y]){
 
                 //Add similar consecutive rocks
-                $verticalCounter+=1;
+                $horizontalCounter+=1;
 
                 for($i = $x-2; $i >= 0; $i--){
                     if($board[$i][$y] != $board[$x][$y]){
+                        break;
+                    }
+                    $horizontalCounter++;
+                }
+            }
+        }
+
+        //Horizontal Checking Right
+        if($x != 14){
+            if($board[$x+1][$y] == $board[$x][$y]){
+
+                //Add similar consecutive rocks
+                $horizontalCounter+=1;
+
+                for($i = $x+2; $i < 15; $i++){
+                    if($board[$i][$y] != $board[$x][$y]){
+                        break;
+                    }
+                    $horizontalCounter++;
+                }
+            }
+        }
+
+        //Vertical Checking Up
+        if($y != 0){
+            if($board[$x][$y-1] == $board[$x][$y]){
+
+                //Add similar consecutive rocks
+                $verticalCounter+=1;
+
+                for($i = $y-2; $i >= 0; $i--){
+                    if($board[$x][$i] != $board[$x][$y]){
                         break;
                     }
                     $verticalCounter++;
@@ -61,14 +93,14 @@ class Move{
         }
 
         //Vertical Checking Down
-        if($x != 14){
-            if($board[$x+1][$y] == $board[$x][$y]){
+        if($y != 14){
+            if($board[$x][$y+1] == $board[$x][$y]){
 
                 //Add similar consecutive rocks
                 $verticalCounter+=1;
 
-                for($i = $x+2; $i < 15; $i++){
-                    if($board[$i][$y] != $board[$x][$y]){
+                for($i = $y+2; $i < 15; $i++){
+                    if($board[$x][$i] != $board[$x][$y]){
                         break;
                     }
                     $verticalCounter++;
@@ -77,10 +109,10 @@ class Move{
         }
 
         //Check if there are 5 consecutive rocks
-        if($verticalCounter >= 5){
+        if($horizontalCounter >= 5 || $verticalCounter >= 5){
             return true;
         }
-        
+
         return false;
     }
 
