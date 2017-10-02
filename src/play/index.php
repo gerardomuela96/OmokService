@@ -59,7 +59,7 @@ else{
                 $playerMove = $game->makePlayerMove($x,$y);
 
                 //Check if the player move is a Win
-                $playerMove->isWin = $playerMove->isWin($game->gameBoard->array, 1);
+                $playerMove->isWin = $playerMove->isWin($game->gameBoard->array);
 
                 //Check if the player move is a Draw
                 $playerMove->isDraw = $playerMove->isDraw($game->gameBoard->array);
@@ -67,11 +67,11 @@ else{
 
 
                 //Opponent move
-                $opponentMove = $game->makeOpponentMove();
+                $opponentMove = $game->makeOpponentMove($playerMove);
 
                 if($playerMove->isWin == false && $playerMove->isDraw == false){
                     //Check if the opponent move is a Win
-                    //$opponentMove->isWin = $opponentMove->isWin($game->gameBoard->array, 2);
+                    $opponentMove->isWin = $opponentMove->isWin($game->gameBoard->array);
 
                     //Check if the opponent move is a Draw
                     $opponentMove->isDraw = $opponentMove->isDraw($game->gameBoard->array);

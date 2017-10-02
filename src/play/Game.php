@@ -48,12 +48,12 @@ class Game{
 
     }
 
-    public function makeOpponentMove()
+    public function makeOpponentMove($playerMove)
     {
-        $coords = $this->moveStrategy->makeMove($this->strategy);
+        $coords = $this->moveStrategy->makeMove($this->strategy, $playerMove, $this->gameBoard->array);
 
-        while($this->gameBoard->array[$coords[0]][$coords[1]] != 0 && in_array(0, $this->gameBoard->array)){
-            $coords = $this->moveStrategy->makeMove($this->strategy);
+        while($this->gameBoard->array[$coords[0]][$coords[1]] != 0 && !$playerMove->isDraw){
+            $coords = $this->moveStrategy->makeMove($this->strategy, $playerMove, $this->gameBoard->array);
         }
 
         if($this->gameBoard->array[$coords[0]][$coords[1]] == 0){

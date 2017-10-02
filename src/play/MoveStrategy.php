@@ -26,12 +26,12 @@ class MoveStrategy{
         }
     }
 
-    public function makeMove($strategy)
+    public function makeMove($strategy, $playerMove, $board)
     {
         switch ($strategy) {
             case "Smart":
                 //Return Smart Move
-                //return $this->strategy->makeSmartMove();
+                return $this->strategy->makeSmartMove($playerMove, $board);
             case "Random":
                 //Return Random Move
                 return $this->strategy->makeRandomMove();

@@ -32,7 +32,7 @@ class Move{
         return true;
     }
 
-    public function isWin($board, $rock)
+    public function isWin($board)
     {
         //Get coordinates
         $x = $this->x;
@@ -108,8 +108,72 @@ class Move{
             }
         }
 
+        //Left Diagonal Checking Up
+        if($x != 0 && $y != 0){
+            if($board[$x-1][$y-1] == $board[$x][$y]){
+
+                //Add similar consecutive rocks
+                $leftDiagonalCounter+=1;
+
+                for($i = $x-2, $j = $y-2; $i >= 0 && $j >= 0; $i--, $j--){
+                    if($board[$i][$j] != $board[$x][$y]){
+                        break;
+                    }
+                    $leftDiagonalCounter++;
+                }
+            }
+        }
+
+        //Left Diagonal Checking Down
+        if($x != 14 && $y != 14){
+            if($board[$x+1][$y+1] == $board[$x][$y]){
+
+                //Add similar consecutive rocks
+                $leftDiagonalCounter+=1;
+
+                for($i = $x+2, $j = $y+2; $i < 15 && $j < 15; $i++, $j++){
+                    if($board[$i][$j] != $board[$x][$y]){
+                        break;
+                    }
+                    $leftDiagonalCounter++;
+                }
+            }
+        }
+
+        //Right Diagonal Checking Up
+        if($x != 0 && $y != 14){
+            if($board[$x-1][$y+1] == $board[$x][$y]){
+
+                //Add similar consecutive rocks
+                $rightDiagonalCounter+=1;
+
+                for($i = $x-2, $j=$y+2; $i >= 0 && $j < 15; $i--, $j++){
+                    if($board[$i][$j] != $board[$x][$y]){
+                        break;
+                    }
+                    $rightDiagonalCounter++;
+                }
+            }
+        }
+
+        //Right Diagonal Checking Down
+        if($x != 14 && $y != 0){
+            if($board[$x+1][$y-1] == $board[$x][$y]){
+
+                //Add similar consecutive rocks
+                $rightDiagonalCounter+=1;
+
+                for($i = $x+2, $j = $y-2; $i < 15 && $j >= 0; $i++, $j--){
+                    if($board[$i][$j] != $board[$x][$y]){
+                        break;
+                    }
+                    $rightDiagonalCounter++;
+                }
+            }
+        }
+
         //Check if there are 5 consecutive rocks
-        if($horizontalCounter >= 5 || $verticalCounter >= 5){
+        if($horizontalCounter >= 5 || $verticalCounter >= 5 || $leftDiagonalCounter >= 5 || $rightDiagonalCounter >= 5){
             return true;
         }
 
