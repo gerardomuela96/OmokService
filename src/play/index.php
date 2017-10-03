@@ -33,7 +33,7 @@ else{
             //Get coords
             $coords = explode(",", $_GET["move"]);
 
-            if($coords[0] == null || $coords[1] == null){
+            if($coords[0] == null || $coords[1] == null || sizeof($coords) > 2){
                 $data = array('response'=>false, 'reason'=>"Move not well-formed");
                 echo json_encode($data);
                 exit;
@@ -47,6 +47,12 @@ else{
 
             if(intval($coords[1]) > 14 || intval($coords[1]) < 0){
                 $data = array('response'=>false, 'reason'=>"Invalid y coordinate, ".intval($coords[1]));
+                echo json_encode($data);
+                exit;
+            }
+
+            if($game->gameBoard->array[$coords[0]][$coords[1]] != 0){
+                $data = array('response'=>false, 'reason'=>"Stone already paced");
                 echo json_encode($data);
                 exit;
             }
