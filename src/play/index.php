@@ -52,7 +52,7 @@ else{
             }
 
             if($game->gameBoard->array[$coords[0]][$coords[1]] != 0){
-                $data = array('response'=>false, 'reason'=>"Stone already paced");
+                $data = array('response'=>false, 'reason'=>"Stone already placed");
                 echo json_encode($data);
                 exit;
             }
