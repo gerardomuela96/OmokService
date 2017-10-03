@@ -5,7 +5,7 @@
  * Date: 9/27/2017
  * Time: 12:20 AM
  */
-
+//Authors Carlos Herrera and Gerardo Muela
 include ("../play/Game.php");
 
 $strategies = array("Smart", "Random"); // supported strategies

@@ -5,7 +5,7 @@
  * Date: 9/29/2017
  * Time: 7:00 PM
  */
-
+//Authors Carlos Herrera and Gerardo Muela
 include ("Game.php");
 
 if(!array_key_exists("pid", $_GET)){

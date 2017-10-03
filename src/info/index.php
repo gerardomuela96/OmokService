@@ -1,5 +1,5 @@
 <?php
-
+//Authors Carlos Herrera and Gerardo Muela
 class GameInfo{
 
     var $size;

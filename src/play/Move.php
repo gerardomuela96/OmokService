@@ -259,6 +259,7 @@ class Move{
             $this->row = array();
         }
 
+        //Order the winning row array
         if(!empty($this->row)){
             for($i = 0; $i < sizeof($this->row); $i++){
                 if($i%2 == 0){
@@ -274,9 +275,9 @@ class Move{
 
             if($rightDiagonalCounter == 5){
                 //Sort x coordinates
-                asort($x_array);
+                sort($x_array);
                 //Sort y coordinates
-                asort($y_array);
+                rsort($y_array);
             }
 
             else{
